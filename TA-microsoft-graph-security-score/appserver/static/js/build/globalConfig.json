@@ -5,7 +5,7 @@
         "version": "1.0.1",
         "apiVersion": "3.0.0",
         "restRoot": "TA_microsoft_graph_security_score",
-        "schemaVersion": "0.0.2"
+        "schemaVersion": "2.0.0"
     },
     "pages": {
         "configuration": {
