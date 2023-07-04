@@ -20,46 +20,16 @@ jobs:
   pre-release:
     name: "Pre Release"
     runs-on: "ubuntu-latest"
-    
+
     steps:
-      # ...
-      - name: "Generate Add-on Build"
+      - name: "Generate Add-on Build and Performing App Inspect Checks"
         run: |
-          echo "Started generating builds."
-      
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
-      
-      - uses: actions/checkout@v2
+          echo "TA-microsoft-graph-security-score"
+
+      - uses: VatsalJagani/splunk-app-action@v1
         with:
-          ref: ${{ steps.extract_branch.outputs.branch }}
-          path: repodir
-            
-      - name: "Generate Add-on Build"
-        run: |
-          cd repodir
-          find TA-microsoft-graph-security-score -type f -exec chmod 644 '{}' \;
-          find TA-microsoft-graph-security-score -type d -exec chmod 755 '{}' \;
-          tar -czf TA-microsoft-graph-security-score.tgz TA-microsoft-graph-security-score
-          cd ..
-          
-      - uses: actions/upload-artifact@v2
-        with:
-          name: "build"
-          path: |
-            repodir/TA-microsoft-graph-security-score.tgz
-      
-      - uses: splunk/appinspect-cli-action@v1
-        if: always()
-        with:
-          app_path: 'repodir/TA-microsoft-graph-security-score.tgz'
-          result_file: 'repodir/ta-appinspect-mode-test.json'
-          
-      - uses: actions/upload-artifact@v2
-        if: always()
-        with:
-          name: "app_inspect_reports"
-          path: |
-            repodir/ta-appinspect-mode-test.json
+          app_dir: "TA-microsoft-graph-security-score"
+          app_build_name: "TA-microsoft-graph-security-score"
+          splunkbase_username: ${{ secrets.SPLUNKBASE_USERNAME }}
+          splunkbase_password: ${{ secrets.SPLUNKBASE_PASSWORD }}
+
