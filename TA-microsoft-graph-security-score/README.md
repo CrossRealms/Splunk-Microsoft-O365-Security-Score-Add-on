@@ -108,6 +108,7 @@ CONTRIBUTORS
 * Usama Houlila
 * Preston Carter
 * Ahad Ghani
+* Hardik Dholariya
 
 
 
