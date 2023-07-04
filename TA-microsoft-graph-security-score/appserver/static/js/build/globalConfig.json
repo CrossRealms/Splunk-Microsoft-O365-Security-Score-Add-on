@@ -3,7 +3,7 @@
         "name": "TA-microsoft-graph-security-score",
         "displayName": "Microsoft Graph Security Score Add-on",
         "version": "1.0.1",
-        "apiVersion": "3.0.0",
+        "apiVersion": "5.28.1",
         "restRoot": "TA_microsoft_graph_security_score",
         "schemaVersion": "2.0.0"
     },
