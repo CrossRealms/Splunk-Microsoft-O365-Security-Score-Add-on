@@ -1,5 +1,4 @@
 import time
-import datetime
 import urllib
 import splunk.entity
 import splunk.appserver.mrsparkle.lib.util as splunk_lib_util
@@ -133,7 +132,7 @@ def collect_events(helper, ew):
 
         if checkpoint != "False":
             helper.log_info(
-                "message=ingest_events | Ingesting all the events with a date greater than {}.".format(checkpoint)
+                "message=ingest_events | Ingesting all the events with a date greater than {}".format(checkpoint)
             )
             last_date = checkpoint
             latest_date = ""
