@@ -14,7 +14,8 @@ CLIENT_ID = "client_id"
 CLIENT_SECRET = "client_secret"
 LOCK_FILE = "not_first.lock"
 ADDON_NAME = "TA-microsoft-graph-security-score"
-LOCK_FILE_PATH = splunk_lib_util.make_splunkhome_path(["etc", "apps", ADDON_NAME, "bin", LOCK_FILE])
+LOCK_FILE_PATH = splunk_lib_util.make_splunkhome_path(["etc", "apps", ADDON_NAME, "local", "checkpoint", LOCK_FILE])
+LOCK_FILE_DIR = splunk_lib_util.make_splunkhome_path(["etc", "apps", ADDON_NAME, "local", "checkpoint"])
 
 
 def validate_input(helper, definition):
@@ -75,6 +76,8 @@ def write_events(helper, ew, data):
 
 def check_lock_file(date=None):
     try:
+        if not os.path.exists(LOCK_FILE_DIR):
+            os.makedirs(LOCK_FILE_DIR)
         if date is None:
             if os.path.exists(LOCK_FILE_PATH):
                 f = open(LOCK_FILE_PATH, "r")
