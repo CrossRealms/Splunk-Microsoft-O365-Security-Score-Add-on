@@ -87,7 +87,7 @@ UNINSTALL ADD-ON
 RELEASE NOTES
 -------------
 Version 1.1.1 (Jul 2023)
-* Changes to make cloud compatible - Updated the location of the checkpoint file.
+* Changed checkpoint file location to make addon cloud compatible.
 
 Version 1.1.0 (Jul 2023)
 * Upgraded the addon to UCC latest v5.28.1

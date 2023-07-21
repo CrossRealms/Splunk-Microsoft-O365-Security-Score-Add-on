@@ -14,8 +14,8 @@ CLIENT_ID = "client_id"
 CLIENT_SECRET = "client_secret"
 LOCK_FILE = "not_first.lock"
 ADDON_NAME = "TA-microsoft-graph-security-score"
-LOCK_FILE_PATH = splunk_lib_util.make_splunkhome_path(["etc", "apps", ADDON_NAME, "local", "checkpoint", LOCK_FILE])
 LOCK_FILE_DIR = splunk_lib_util.make_splunkhome_path(["etc", "apps", ADDON_NAME, "local", "checkpoint"])
+LOCK_FILE_PATH = os.path.join(LOCK_FILE_DIR, LOCK_FILE)
 
 
 def validate_input(helper, definition):
