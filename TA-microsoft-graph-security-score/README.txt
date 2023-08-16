@@ -8,3 +8,10 @@ This is an add-on powered by the Splunk Add-on Builder.
 /opt/splunk/var/data/tabuilder/package/TA-microsoft-graph-security-score/bin/ta_microsoft_graph_security_score/aob_py3/setuptools/cli-64.exe: this file does not require any source code
 /opt/splunk/var/data/tabuilder/package/TA-microsoft-graph-security-score/bin/ta_microsoft_graph_security_score/aob_py3/setuptools/cli.exe: this file does not require any source code
 /opt/splunk/var/data/tabuilder/package/TA-microsoft-graph-security-score/bin/ta_microsoft_graph_security_score/aob_py3/markupsafe/_speedups.cpython-37m-x86_64-linux-gnu.so: this file does not require any source code
+# What's inside the App
+
+* No of XML Dashboards: **3**
+* Approx Total Viz(Charts/Tables/Map) in XML dashboards: **4**
+* No of Custom Inputs: **1**
+
+
