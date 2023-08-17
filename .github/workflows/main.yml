@@ -10,11 +10,6 @@ on:
       - '*/*'       # matches every branch containing a single '/'
       - '**'        # matches every branch
   workflow_dispatch:
-    inputs:
-      comment:
-        description: 'Add comment for manual workflow execution.'
-        required: false
-        default: 'Manual execution of Github workflow.'
 
 jobs:
   pre-release:
@@ -22,14 +17,11 @@ jobs:
     runs-on: "ubuntu-latest"
 
     steps:
-      - name: "Generate Add-on Build and Performing App Inspect Checks"
-        run: |
-          echo "TA-microsoft-graph-security-score"
-
-      - uses: VatsalJagani/splunk-app-action@v1
+      - uses: VatsalJagani/splunk-app-action@v2
         with:
           app_dir: "TA-microsoft-graph-security-score"
-          app_build_name: "TA-microsoft-graph-security-score"
           splunkbase_username: ${{ secrets.SPLUNKBASE_USERNAME }}
           splunkbase_password: ${{ secrets.SPLUNKBASE_PASSWORD }}
+          app_utilities: "whats_in_the_app"
+          my_github_token: ${{ secrets.MY_GITHUB_TOKEN }}
 
