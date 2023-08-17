@@ -8,13 +8,19 @@ OVERVIEW
 --------
 The Microsoft Graph Security Score Add-on for Splunk allows users to collect their Azure (Office 365) Security Score from Microsoft's Security Graph API. It consists of Python scripts that collect the required/necessary data to configure the account information.
 
-
 * Author - CrossRealms International Inc.
 * Creates Index - False
 * Compatible with:
    * Splunk Enterprise version: 9.1.x, 9.0.x, 8.2.x
    * OS: Platform Independent
    * Browser: Google Chrome, Mozilla Firefox, Safari
+
+
+## What's inside the App
+
+* No of XML Dashboards: **3**
+* Approx Total Viz(Charts/Tables/Map) in XML dashboards: **4**
+* No of Custom Inputs: **1**
 
 
 
@@ -105,6 +111,17 @@ Version 1.0.0 (Aug 2021)
 OPEN SOURCE COMPONENTS AND LICENSES
 ------------------------------
 * The Add-on is built using UCC framework (https://pypi.org/project/splunk-add-on-ucc-framework/).
+
+This is an add-on powered by the Splunk Add-on Builder.
+## Binary File Declaration
+/opt/splunk/var/data/tabuilder/package/TA-microsoft-graph-security-score/bin/ta_microsoft_graph_security_score/aob_py3/pvectorc.cpython-37m-x86_64-linux-gnu.so: this file does not require any source code
+/opt/splunk/var/data/tabuilder/package/TA-microsoft-graph-security-score/bin/ta_microsoft_graph_security_score/aob_py3/setuptools/gui-64.exe: this file does not require any source code
+/opt/splunk/var/data/tabuilder/package/TA-microsoft-graph-security-score/bin/ta_microsoft_graph_security_score/aob_py3/setuptools/cli-32.exe: this file does not require any source code
+/opt/splunk/var/data/tabuilder/package/TA-microsoft-graph-security-score/bin/ta_microsoft_graph_security_score/aob_py3/setuptools/gui.exe: this file does not require any source code
+/opt/splunk/var/data/tabuilder/package/TA-microsoft-graph-security-score/bin/ta_microsoft_graph_security_score/aob_py3/setuptools/gui-32.exe: this file does not require any source code
+/opt/splunk/var/data/tabuilder/package/TA-microsoft-graph-security-score/bin/ta_microsoft_graph_security_score/aob_py3/setuptools/cli-64.exe: this file does not require any source code
+/opt/splunk/var/data/tabuilder/package/TA-microsoft-graph-security-score/bin/ta_microsoft_graph_security_score/aob_py3/setuptools/cli.exe: this file does not require any source code
+/opt/splunk/var/data/tabuilder/package/TA-microsoft-graph-security-score/bin/ta_microsoft_graph_security_score/aob_py3/markupsafe/_speedups.cpython-37m-x86_64-linux-gnu.so: this file does not require any source code
 
 
 CONTRIBUTORS
