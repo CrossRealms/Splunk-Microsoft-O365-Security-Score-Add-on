@@ -45,6 +45,7 @@ def get_access_token(helper, application_id, secret, tenant):
         )
     if resp.status_code not in (201, 200):
         helper.log_error("Failed to get access_token. status_code={}, resp={}".format(resp.status_code, resp.text))
+    resp.raise_for_status()
     access_token = resp.json()
     return access_token[ACCESS_TOKEN]
 
