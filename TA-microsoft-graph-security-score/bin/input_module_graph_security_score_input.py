@@ -36,13 +36,17 @@ def get_access_token(helper, application_id, secret, tenant):
     }
     url = "https://login.microsoftonline.com/" + tenant + "/oauth2/v2.0/token"
     if sys.version_info > (3, 0):
-        access_token = helper.send_http_request(
+        resp = helper.send_http_request(
             url, "POST", payload=urllib.parse.urlencode(data), timeout=(15.0, 15.0)
-        ).json()
+        )
     else:
-        access_token = helper.send_http_request(
+        resp = helper.send_http_request(
             url, "POST", payload=urllib.urlencode(data), timeout=(15.0, 15.0)
-        ).json()
+        )
+    if resp.status_code not in (201, 200):
+        helper.log_error("Failed to get access_token. status_code={}, resp={}".format(resp.status_code, resp.text))
+    resp.raise_for_status()
+    access_token = resp.json()
     return access_token[ACCESS_TOKEN]
 
 
