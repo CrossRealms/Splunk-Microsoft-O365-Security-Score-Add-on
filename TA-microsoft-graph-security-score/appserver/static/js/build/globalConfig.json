@@ -6,7 +6,7 @@
         "apiVersion": "5.28.1",
         "restRoot": "TA_microsoft_graph_security_score",
         "schemaVersion": "2.0.0",
-        "_uccVersion": "5.41.0"
+        "_uccVersion": "5.48.2"
     },
     "pages": {
         "configuration": {
@@ -146,7 +146,8 @@
                                 ]
                             },
                             "defaultValue": "INFO",
-                            "field": "loglevel"
+                            "field": "loglevel",
+                            "required": true
                         }
                     ]
                 }
@@ -237,18 +238,18 @@
                             ]
                         },
                         {
+                            "type": "text",
                             "field": "interval",
                             "label": "Interval",
-                            "type": "text",
-                            "required": true,
-                            "help": "Time interval of input in seconds.",
                             "validators": [
                                 {
                                     "type": "regex",
-                                    "pattern": "^\\-[1-9]\\d*$|^\\d*$",
-                                    "errorMsg": "Interval must be an integer."
+                                    "errorMsg": "Interval must be either a non-negative number or -1.",
+                                    "pattern": "^(?:-1|\\d+(?:\\.\\d+)?)$"
                                 }
-                            ]
+                            ],
+                            "help": "Time interval of input in seconds.",
+                            "required": true
                         },
                         {
                             "field": "index",
