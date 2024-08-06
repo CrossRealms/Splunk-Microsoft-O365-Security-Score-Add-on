@@ -1,62 +1,59 @@
 {
-  "schemaVersion": "2.0.0",
-  "info": {
-    "title": "Microsoft Graph Security Score Add-on",
-    "id": {
-      "group": null,
-      "name": "TA-microsoft-graph-security-score",
-      "version": "1.1.1"
+    "dependencies": {},
+    "incompatibleApps": {},
+    "info": {
+        "author": [
+            {
+                "company": null,
+                "email": null,
+                "name": "CrossRealms International"
+            }
+        ],
+        "classification": {
+            "categories": [],
+            "developmentStatus": null,
+            "intendedAudience": null
+        },
+        "commonInformationModels": null,
+        "description": "This Add-on pulls secure score from Microsoft Graph Security API.",
+        "id": {
+            "group": null,
+            "name": "TA-microsoft-graph-security-score",
+            "version": "1.2.0"
+        },
+        "license": {
+            "name": null,
+            "text": null,
+            "uri": null
+        },
+        "privacyPolicy": {
+            "name": null,
+            "text": null,
+            "uri": null
+        },
+        "releaseDate": null,
+        "releaseNotes": {
+            "name": null,
+            "text": null,
+            "uri": null
+        },
+        "title": "Microsoft Graph Security Score Add-on"
     },
-    "author": [
-      {
-        "name": "CrossRealms International",
-        "email": null,
-        "company": null
-      }
+    "inputGroups": {},
+    "platformRequirements": {
+        "splunk": {
+            "Enterprise": "*"
+        }
+    },
+    "schemaVersion": "2.0.0",
+    "supportedDeployments": [
+        "_standalone",
+        "_distributed",
+        "_search_head_clustering"
     ],
-    "releaseDate": null,
-    "description": "This Add-on pulls secure score from Microsoft Graph Security API.",
-    "classification": {
-      "intendedAudience": null,
-      "categories": [],
-      "developmentStatus": null
-    },
-    "commonInformationModels": null,
-    "license": {
-      "name": null,
-      "text": null,
-      "uri": null
-    },
-    "privacyPolicy": {
-      "name": null,
-      "text": null,
-      "uri": null
-    },
-    "releaseNotes": {
-      "name": null,
-      "text": null,
-      "uri": null
-    }
-  },
-  "dependencies": {
-  },
-  "tasks": [],
-  "inputGroups": {
-  },
-  "incompatibleApps": {
-  },
-  "supportedDeployments": [
-    "_standalone",
-    "_distributed",
-    "_search_head_clustering"
-  ],
-  "platformRequirements": {
-    "splunk": {
-      "Enterprise": "*"
-    }
-  },
-  "targetWorkloads": [
-    "_search_heads",
-    "_forwarders"
-  ]
+    "targetWorkloads": [
+        "_search_heads",
+        "_forwarders"
+    ],
+    "tasks": []
 }

@@ -92,6 +92,10 @@ UNINSTALL ADD-ON
 
 RELEASE NOTES
 -------------
+Version 1.2.0 (Aug 2024)
+* Added proxy support
+* Upgraded addon to use latest UCC v5.48.2
+
 Version 1.1.1 (Jul 2023)
 * Changed checkpoint file location to make addon cloud compatible.
 
