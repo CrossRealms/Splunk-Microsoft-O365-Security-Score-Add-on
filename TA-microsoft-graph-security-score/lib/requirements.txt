@@ -1,5 +1,5 @@
-splunktaucclib
-splunk-sdk
-solnlib
-requests
-requests[socks]
+splunktaucclib==8.1.0
+splunk-sdk==3.0.0
+solnlib==8.1.0
+requests==2.34.2
+requests[socks]==2.34.2

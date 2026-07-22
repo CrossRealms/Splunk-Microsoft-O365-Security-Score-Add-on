@@ -1,5 +1,7 @@
 # Microsoft Graph Security Score Add-on for Splunk
 
+Note:- Do not use Add-on version 2.0.0 and above for Splunk version below 10.4.0.
+
 ### Download from Splunkbase
 https://splunkbase.splunk.com/app/5693
 
@@ -11,7 +13,7 @@ The Microsoft Graph Security Score Add-on for Splunk allows users to collect the
 * Author - CrossRealms International Inc.
 * Creates Index - False
 * Compatible with:
-   * Splunk Enterprise version: 9.1.x, 9.0.x, 8.2.x
+   * Splunk Enterprise version: 10.4.x
    * OS: Platform Independent
    * Browser: Google Chrome, Mozilla Firefox, Safari
 
@@ -92,6 +94,12 @@ UNINSTALL ADD-ON
 
 RELEASE NOTES
 -------------
+Version 2.0.0 (July 2026)
+* Added compatibility with Python 3.13 and Splunk Enterprise 10.4.x and higher.
+* Dependencies pinned/upgraded to latest versions supporting Python 3.13 (Splunk Python SDK 3.0.0, splunktaucclib 8.1.0, solnlib 8.1.0, requests 2.34.2).
+* Updated GitHub CI to splunk-app-action v7; set `python.version = latest` and `python.required = 3.13` for all Python handlers/inputs.
+* Now supports Splunk Enterprise 10.4.x and higher only (drops support for Splunk versions below 10.4.0).
+
 Version 1.2.0 (Aug 2024)
 * Added proxy support
 * Upgraded addon to use latest UCC v5.48.2
