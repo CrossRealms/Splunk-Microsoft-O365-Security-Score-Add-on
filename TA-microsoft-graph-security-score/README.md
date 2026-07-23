@@ -11,7 +11,7 @@ The Microsoft Graph Security Score Add-on for Splunk allows users to collect the
 * Author - CrossRealms International Inc.
 * Creates Index - False
 * Compatible with:
-   * Splunk Enterprise version: 9.x and 10.x (including 10.4.x)
+   * Splunk Enterprise version: 10.2.x, 10.4.x
    * OS: Platform Independent
    * Browser: Google Chrome, Mozilla Firefox, Safari
 

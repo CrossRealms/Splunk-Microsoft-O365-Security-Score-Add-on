@@ -1,5 +1,6 @@
 {
     "meta": {
+        "supportedPythonVersion": ["3.13", "3.9"],
         "name": "TA-microsoft-graph-security-score",
         "displayName": "Microsoft Graph Security Score Add-on",
         "version": "1.3.0",
