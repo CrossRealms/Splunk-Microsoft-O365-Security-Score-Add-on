@@ -604,7 +604,12 @@ class Context:
         """
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         if self.scheme == "https":
-            sock = ssl.wrap_socket(sock)
+            # ssl.wrap_socket() was removed in Python 3.12. An SSLContext with
+            # verification disabled reproduces its behaviour and works on 3.9+.
+            context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
+            context.check_hostname = False
+            context.verify_mode = ssl.CERT_NONE
+            sock = context.wrap_socket(sock)
         sock.connect((socket.gethostbyname(self.host), self.port))
         return sock
 

@@ -20,7 +20,7 @@ Note: It manages inputs.conf
 
 """
 
-import collections
+import collections.abc
 import json
 import logging
 import sys
@@ -191,9 +191,9 @@ class DataInputHandler(base.BaseRestHandler):
     def convert(self, data):
         if isinstance(data, str):
             return data.encode("utf-8")
-        elif isinstance(data, collections.Mapping):
+        elif isinstance(data, collections.abc.Mapping):
             return dict(list(map(self.convert, iter(data.items()))))
-        elif isinstance(data, collections.Iterable):
+        elif isinstance(data, collections.abc.Iterable):
             return type(data)(list(map(self.convert, data)))
         else:
             return data
