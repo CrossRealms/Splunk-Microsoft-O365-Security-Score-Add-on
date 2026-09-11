@@ -17,7 +17,7 @@ jobs:
     runs-on: "ubuntu-latest"
 
     steps:
-      - uses: VatsalJagani/splunk-app-action@v7
+      - uses: VatsalJagani/splunk-app-action@38f9f8b300efab2dce79612a18a8e6b477c05147 # v7.1.1
         with:
           app_dir: "TA-microsoft-graph-security-score"
           to_make_permission_changes: true
