@@ -1,10 +1,9 @@
 import time
-import urllib
+from urllib.parse import urlencode
 import splunk.entity
 import splunk.appserver.mrsparkle.lib.util as splunk_lib_util
 from datetime import datetime
 import os
-import sys
 import json
 import traceback
 
@@ -35,16 +34,11 @@ def get_access_token(helper, application_id, secret, tenant):
         "grant_type": "client_credentials",
     }
     url = "https://login.microsoftonline.com/" + tenant + "/oauth2/v2.0/token"
-    if sys.version_info > (3, 0):
-        resp = helper.send_http_request(
-            url, "POST", payload=urllib.parse.urlencode(data), timeout=(15.0, 15.0)
-        )
-    else:
-        resp = helper.send_http_request(
-            url, "POST", payload=urllib.urlencode(data), timeout=(15.0, 15.0)
-        )
+    resp = helper.send_http_request(
+        url, "POST", payload=urlencode(data), timeout=(15.0, 15.0)
+    )
     if resp.status_code not in (201, 200):
-        helper.log_error("Failed to get access_token. status_code={}, resp={}".format(resp.status_code, resp.text))
+        helper.log_error(f"Failed to get access_token. status_code={resp.status_code}, resp={resp.text}")
     resp.raise_for_status()
     access_token = resp.json()
     return access_token[ACCESS_TOKEN]
@@ -127,19 +121,17 @@ def collect_events(helper, ew):
 
         if "error" in response:
             helper.log_info(
-                'Make sure your app with id {} has the Microsoft Graph "SecurityEvents.Read.All" permission and your tenant admin has given your application admin consent'.format(
-                    opt_application_id
-                )
+                f'Make sure your app with id {opt_application_id} has the Microsoft Graph "SecurityEvents.Read.All" permission and your tenant admin has given your application admin consent'
             )
             raise ValueError("Error occurred : " + json.dumps(response, indent=4))
 
         helper.log_info("message=api_call | Received the secure score details")
         checkpoint = check_lock_file()
-        helper.log_info("message=get_checkpoint | Received the checkpoint with value: {}".format(checkpoint))
+        helper.log_info(f"message=get_checkpoint | Received the checkpoint with value: {checkpoint}")
 
         if checkpoint != "False":
             helper.log_info(
-                "message=ingest_events | Ingesting all the events with a date greater than {}".format(checkpoint)
+                f"message=ingest_events | Ingesting all the events with a date greater than {checkpoint}"
             )
             last_date = checkpoint
             latest_date = ""
@@ -148,7 +140,7 @@ def collect_events(helper, ew):
                     latest_date = data.get("id").split("_")[1]
                     check_lock_file(latest_date)
                     helper.log_info(
-                        "message=save_checkpoint | Saving the checkpoint with value: {}".format(latest_date)
+                        f"message=save_checkpoint | Saving the checkpoint with value: {latest_date}"
                     )
                 if latest_date != "" and data.get("id").split("_")[1] == latest_date and latest_date != last_date:
                     write_events(helper, ew, data)
@@ -159,18 +151,14 @@ def collect_events(helper, ew):
                 if first_event == 0:
                     check_lock_file(data.get("id").split("_")[1])
                     helper.log_info(
-                        "message=save_checkpoint | Saving the checkpoint with value: {}".format(
-                            data.get("id").split("_")[1]
-                        )
+                        f'message=save_checkpoint | Saving the checkpoint with value: {data.get("id").split("_")[1]}'
                     )
                     first_event = 1
                 write_events(helper, ew, data)
 
         helper.log_info(
-            "message=data_collection_end | Execution of the script is finished. time_taken={} seconds.".format(
-                time.time() - start_time
-            )
+            f"message=data_collection_end | Execution of the script is finished. time_taken={time.time() - start_time} seconds."
         )
 
     except Exception as e:
-        helper.log_error("message=unknown_error | error={} error_trace={}".format(str(e), traceback.format_exc()))
+        helper.log_error(f"message=unknown_error | error={e} error_trace={traceback.format_exc()}")
